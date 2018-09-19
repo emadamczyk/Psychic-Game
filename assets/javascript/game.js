@@ -59,9 +59,9 @@ document.onkeypress = function(event) {
     wins++;
     document.getElementById("winNum").innerText = wins;
     allGuesses = []; //or use allGuesses.length = 0
-    confirm(
+    alert(
       "Wow! You are a psychic! The correct letter was " +
-        randomLetter + ". Dare to try again?"
+        randomLetter + ". I dare you to try again."
     );
     //console.log("wins: " + wins++);
     guessesLeft = 10;
@@ -78,10 +78,10 @@ document.onkeypress = function(event) {
     allGuesses = [];
     document.getElementById("lossNum").innerText = losses;
     //console.log("losses= " + losses);
-    confirm(
+    alert(
       "Sorry. You are evidently not psychic. The correct letter was " +
-        randomLetter + ". Would you like to try again?"
-    );
+        randomLetter + ". Try again."
+    ); //how could I use confirm to ask and then reset for null response?
     guessesLeft = 10;
     newRandomLetter();
     console.log(randomLetter);
