@@ -1,0 +1,41 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+
+.container {
+    background: lightgray;
+    margin: 0 auto;
+    padding: 5 auto;
+    width: 100%;
+}
+
+.border {
+    border: 1px solid #4aaaa5;
+}
+
+header {
+    font-family: 'Play', sans-serif;
+    padding: 5px;
+    text-align: center;
+}
+
+.wrapper {
+    background: #fff;
+    margin: 15px auto;
+    padding: 5 auto;
+    width: 100%;
+}
+
+
+
+#game {
+    font-family: 'Amatic SC', cursive;
+    font-size: 32px;
+}
+
+#underscores {
+    letter-spacing: 10px;
+    font-weight: bolder;
+}

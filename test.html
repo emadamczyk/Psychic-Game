@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>EA's Psychic Game</title>
+    <!-- Added a link to Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Play" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!--Instructions-->
+        <header class="wrapper">
+            <h1>Are you a Psychic?</h1>
+            <h3>Guess what letter I'm thinking of</h3>
+            <p>Press any letter to start guessing</p>
+            <h3>You have 10 guesses.</h3>
+        </header>
+    </div>
+    <!--Game play area-->
+    <div class="wrapper" id="game">
+        <p>Wins: <span id="winNum"></span></p>
+        <p>Losses: <span id="lossNum"></span></p>
+        <p>Your Guesses So Far: <span id="letterGuess"></span></p>
+        <p>Guesses Left: <span id="guessNum"></span></p>
+     </div>
+    
+     <!-- create js code for game and later paste into game.js -->
+    <script>
+    
+    var wins = 0;
+    var losses = 0;
+    var guessesLeft = 10;
+    var allGuesses = []; //is there a way to print all guessed letters?
+     //create an array that lists all possible letter choices
+    var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+    var randomLetter = letters[Math.floor(Math.random() * letters.length)];
+    console.log(randomLetter);
+    document.onkeypress = function (event) {
+        var playerGuess = event.key;
+        console.log(playerGuess);
+        //validate playerGuess as a letter
+        if (letters.includes(playerGuess)) {
+            allGuesses.push(playerGuess);
+            document.getElementById("letterGuess").innerText = allGuesses;
+        }
+        //if player's guess = computer guess, player wins; increment wins by 1, reset game, clear guesses, congratulate on win
+        //if player's guess not = computer guess/random letter
+        if (playerGuess === randomLetter) {
+            wins++;
+            guessesLeft = 10;
+            total = [];
+            confirm("Wow! You are a psychic! Dare to try again?")
+            console.log("wins: " + wins++);
+        }
+        else {
+            guessesLeft--;
+            console.log("guesses left: " + guessesLeft);        
+        }
+        //until guesses reach 0, log a loss, reset game
+        if (guessesLeft === 0) {
+            losses++;
+            guessesLeft = 10;
+            total = [];
+        }
+        //to end game after so many losses and reset to beginning
+        if (losses >= 11) {
+            alert("I don't think you're psychic. Please try another game.");
+            losses = 0;
+            wins = 0;
+        }
+        console.log("wins= " + losses);
+        console.log("losses= " + wins);
+        console.log("guesses left= " + guessesLeft);
+        console.log("letters guessed= " + allGuesses);
+        //document.getElementById("lossNum").textContent = losses;
+        //document.getElementById("winNum").textContent = wins;
+        //document.getElementById("guessesNum").textContent = guessesLeft;
+        //document.getElementById("letterGuess").textContent = allGuesses;
+    }
+  
+    
+    
+    
+    </script>
+     
+</body>
+</html> 
