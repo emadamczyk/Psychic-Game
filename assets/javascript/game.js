@@ -43,6 +43,15 @@ function newRandomLetter() {
 newRandomLetter();
 console.log(randomLetter);
 
+//testing resetGame functionality
+//function resetGame() {
+  //losses = 0;
+  //wins = 0; 
+  //allGuesses = [];
+  //guessesLeft = 10;
+  //newRandomLetter();
+//}
+
 document.onkeypress = function(event) {
   var playerGuess = event.key;
   //console.log(playerGuess);
@@ -97,7 +106,7 @@ document.onkeypress = function(event) {
   //document.getElementById("letterGuess").innerText = allGuesses;
   //}
 
-  //to end game after so many losses and reset to beginning
+  //to end game after so many losses and reset to beginning; could do this as a resetGame function too
   if (losses >= 7) {
     alert("I don't think you're psychic. Please try another game.");
     losses = 0;
@@ -105,13 +114,14 @@ document.onkeypress = function(event) {
     allGuesses = [];
     guessesLeft = 10;
   }
-  //to end game after so many wins and reset to beginning
-  if (wins >= 7) {
+  //to end game after so many wins and reset to beginning; could do this as a resetGame function too
+  if (wins >= 3) {
     alert("You're a psychic pro! No more proof of your abilities is needed.");
     losses = 0;
     wins = 0;
-    allGuesses = [];
+    allGuesses.length = 0; //another way of writing allGuesses = []; to clear choices
     guessesLeft = 10;
+    //resetGame();
   }
 
   console.log("guesses left= " + guessesLeft);
