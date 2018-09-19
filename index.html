@@ -49,23 +49,32 @@
         if (letters.includes(playerGuess)) {
             allGuesses.push(playerGuess);
             document.getElementById("letterGuess").innerText = allGuesses;
+        } else {
+            alert("Not a valid guess. Please guess the 'letter' I'm thinking of.")
         }
         //if player's guess = computer guess, player wins; increment wins by 1, reset game, clear guesses, congratulate on win
         //if player's guess not = computer guess/random letter
         if (playerGuess === randomLetter) {
             wins++;
-            guessesLeft = 10;
-            total = [];
-            confirm("Wow! You are a psychic! Dare to try again?")
+            document.getElementById("winNum").innerText = wins;
+            allGuesses = [""];
+            confirm("Wow! You are a psychic! The correct letter was " + randomLetter + ". Dare to try again?")
             console.log("wins: " + wins++);
+            guessesLeft = 10;
+            //allGuesses = [];
+            //total = [];
         }
         else {
             guessesLeft--;
-            console.log("guesses left: " + guessesLeft);        
+            console.log("guesses left: " + guessesLeft); 
+            document.getElementById("guessNum").innerText = guessesLeft;       
         }
         //until guesses reach 0, log a loss, reset game
         if (guessesLeft === 0) {
             losses++;
+            document.getElementById("lossNum").innerText = losses;
+            console.log("losses= " + losses);
+            confirm("Sorry. You are evidently not psychic. The correct letter was " + randomLetter + ". Would you like to try again?")
             guessesLeft = 10;
             total = [];
         }
@@ -75,8 +84,8 @@
             losses = 0;
             wins = 0;
         }
-        console.log("wins= " + losses);
-        console.log("losses= " + wins);
+        
+        
         console.log("guesses left= " + guessesLeft);
         console.log("letters guessed= " + allGuesses);
         //document.getElementById("lossNum").textContent = losses;
