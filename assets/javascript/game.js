@@ -73,6 +73,8 @@ document.onkeypress = function(event) {
     document.getElementById("guessNum").innerText = guessesLeft;
   }
   //until guesses reach 0, log a loss, reset game
+  //is there a way to test if a guess is a duplicate? 
+  //could have done this code as function to check guesses
   if (guessesLeft === 0) {
     losses++;
     allGuesses = [];
