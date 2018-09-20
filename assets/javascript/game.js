@@ -61,6 +61,7 @@ document.onkeypress = function(event) {
     document.getElementById("letterGuess").innerText = allGuesses;
   } else {
     alert("Not a valid guess. Please guess the 'letter' I'm thinking of.");
+    return
   }
   //if player's guess = computer guess, player wins; increment wins by 1, reset game, clear guesses, congratulate on win
   //if player's guess not = computer guess/random letter
@@ -69,6 +70,7 @@ document.onkeypress = function(event) {
     document.getElementById("winNum").innerText = wins;
     allGuesses = []; //or use allGuesses.length = 0
     document.getElementById("letterGuess").innerText = "";
+    document.getElementById("guessNum").innerText = "";
     alert(
       "Wow! You are a psychic! The correct letter was " +
         randomLetter + ". I dare you to try again."
@@ -87,8 +89,10 @@ document.onkeypress = function(event) {
   //could have done this code as function to check guesses
   if (guessesLeft === 0) {
     losses++;
+    document.getElementById("letterGuess").innerText = "";
     allGuesses = [];
-    document.getElementById("lossNum").innerText = losses;
+    document.getElementById("lossNum").innerText = losses
+    document.getElementById("guessNum").innerText = "";
     //console.log("losses= " + losses);
     alert(
       "Sorry. You are evidently not psychic. The correct letter was " +
@@ -110,6 +114,10 @@ document.onkeypress = function(event) {
   //to end game after so many losses and reset to beginning; could do this as a resetGame function too
   if (losses >= 7) {
     alert("I don't think you're psychic. Please try another game.");
+    document.getElementById("letterGuess").innerText = "";
+    document.getElementById("guessNum").innerText = "";
+    document.getElementById("winNum").innerText = "";
+    document.getElementById("lossNum").innerText = "";
     losses = 0;
     wins = 0;
     allGuesses = [];
@@ -118,6 +126,10 @@ document.onkeypress = function(event) {
   //to end game after so many wins and reset to beginning; could do this as a resetGame function too
   if (wins >= 3) {
     alert("You're a psychic pro -- three correct guesses! No more proof of your abilities is needed.");
+    document.getElementById("letterGuess").innerText = "";
+    document.getElementById("guessNum").innerText = "";
+    document.getElementById("winNum").innerText = "";
+    document.getElementById("lossNum").innerText = "";
     losses = 0;
     wins = 0;
     allGuesses.length = 0; //another way of writing allGuesses = []; to clear choices
