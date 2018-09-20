@@ -68,6 +68,7 @@ document.onkeypress = function(event) {
     wins++;
     document.getElementById("winNum").innerText = wins;
     allGuesses = []; //or use allGuesses.length = 0
+    document.getElementById("letterGuess").innerText = "";
     alert(
       "Wow! You are a psychic! The correct letter was " +
         randomLetter + ". I dare you to try again."
@@ -116,7 +117,7 @@ document.onkeypress = function(event) {
   }
   //to end game after so many wins and reset to beginning; could do this as a resetGame function too
   if (wins >= 3) {
-    alert("You're a psychic pro! No more proof of your abilities is needed.");
+    alert("You're a psychic pro -- three correct guesses! No more proof of your abilities is needed.");
     losses = 0;
     wins = 0;
     allGuesses.length = 0; //another way of writing allGuesses = []; to clear choices
